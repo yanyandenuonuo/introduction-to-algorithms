@@ -7,7 +7,7 @@
 - Windows 10 Professional Edition X64
 - PHP 7.1.7
 - Python 3.6.2
-- JAVA 1.8.0
+- Java 1.8.0
 - Go 1.9.2
 - NodeJs 6.11.2
 
