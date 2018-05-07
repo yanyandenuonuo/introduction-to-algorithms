@@ -66,5 +66,6 @@ def merge(unsorted_array, begin, split_index, end):
 
 # 调用
 merge_sort(unsortedArray, 0, len(unsortedArray) - 1)
+
 # 打印输出
 print(unsortedArray)

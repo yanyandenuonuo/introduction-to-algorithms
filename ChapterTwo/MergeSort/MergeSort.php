@@ -56,5 +56,6 @@ function merge(&$unsortedArray, $begin, $splitIndex, $end) {
 
 // 调用
 mergeSort($unsortedArray, 0, count($unsortedArray) - 1);
+
 // 打印输出
 var_dump($unsortedArray);
