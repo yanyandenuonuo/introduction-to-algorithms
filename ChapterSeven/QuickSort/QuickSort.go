@@ -1,8 +1,8 @@
 func quickSort(nums []int, leftIdx, rightIdx int) []int {
 	if leftIdx < rightIdx {
-		pivot := partition(nums, leftIdx, rightIdx)
-		nums = quickSort(nums, leftIdx, pivot)
-		nums = quickSort(nums, pivot+1, rightIdx)
+		pivotIdx := partition(nums, leftIdx, rightIdx)
+		nums = quickSort(nums, leftIdx, pivotIdx)
+		nums = quickSort(nums, pivotIdx+1, rightIdx)
 	}
 	return nums
 }
