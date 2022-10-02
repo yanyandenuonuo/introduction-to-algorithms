@@ -1,21 +1,26 @@
-func quickSort(arr []int, leftIdx, rightIdx int) []int {
+func quickSort(nums []int, leftIdx, rightIdx int) []int {
 	if leftIdx < rightIdx {
-		targetIdx := partition(arr, leftIdx, rightIdx)
-		arr = partition(arr, leftIdx, targetIdx-1)
-		arr = partition(arr, targetIdx+1, rightIdx)
+		pivot := partition(nums, leftIdx, rightIdx)
+		nums = quickSort(nums, leftIdx, pivot)
+		nums = quickSort(nums, pivot+1, rightIdx)
 	}
-	return arr
+	return nums
 }
 
-func partition(arr []int, leftIdx, rightIdx int) int {
-	targetIdx := leftIdx
-	changeIdx := targetIdx + 1
-	for idx := changeIdx; idx < rightIdx; idx += 1 {
-		if arr[idx] < arr[targetIdx] {
-			arr[idx], arr[changeIdx] = arr[changeIdx], arr[idx]
-			changeIdx += 1
+func partition(nums []int, leftIdx, rightIdx int) int {
+	pivotIdx := leftIdx + rand.Intn(rightIdx-leftIdx)
+	// swap pivot with right-1
+	nums[rightIdx-1], nums[pivotIdx] = nums[pivotIdx], nums[rightIdx-1]
+	pivotIdx = rightIdx - 1
+
+	swapIdx := leftIdx
+	for idx := leftIdx; idx < rightIdx-1; idx += 1 {
+		if nums[idx] < nums[pivotIdx] {
+			nums[idx], nums[swapIdx] = nums[swapIdx], nums[idx]
+			swapIdx += 1
 		}
 	}
-	arr[targetIdx], arr[changeIdx-1] = arr[changeIdx-1], arr[targetIdx]
-	return changeIdx - 1
+	nums[swapIdx], nums[pivotIdx] = nums[pivotIdx], nums[swapIdx]
+
+	return swapIdx
 }
